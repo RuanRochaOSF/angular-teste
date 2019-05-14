@@ -1,0 +1,44 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 400px;
+    margin: 20px;
+
+    &__button-content {
+      &__voltar {
+        border: none;
+        border-left: 4px solid rgba(0, 0, 0, 0.5);
+        border-top: 4px solid rgba(0, 0, 0, 0.5);
+        height: 50px;
+        width: 50px;
+        background-color: transparent;
+        transform: rotate(-45deg) translateX(10px);
+        outline: none;
+      }
+
+      &__ir {
+        @extend .container__button-content__voltar;
+        border-left: none;
+        border-right: 4px solid rgba(0, 0, 0, 0.5);
+        transform: rotate(45deg) translateX(-10px);
+      }
+
+      &__voltar:hover,
+      &__ir:hover {
+        border-color: black;
+        border-width: 5px;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+    }
+  }
+}
