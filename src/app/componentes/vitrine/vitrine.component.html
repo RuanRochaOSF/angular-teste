@@ -1,21 +1,23 @@
-<!-- <div *ngFor="let produto of produtos">
-  Produto
-</div> -->
-
 <section class="section">
   <div class="section__title-content">
     <h2 class="section__title-content__title">PROMOÇÕES</h2>
   </div>
   <div class="container">
     <div class="container__button-content">
-      <button class="container__button-content__voltar"></button>
+      <button
+        class="container__button-content__voltar"
+        (click)="voltar()"
+      ></button>
     </div>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+    <div *ngFor="let produto of produtosVisiveis">
+      <app-card
+        [objeto]="produto"
+        [comprado]="false"
+        [favorito]="false"
+      ></app-card>
+    </div>
     <div class="container__button-content">
-      <button class="container__button-content__ir"></button>
+      <button class="container__button-content__ir" (click)="ir()"></button>
     </div>
   </div>
 </section>
