@@ -1,0 +1,35 @@
+<div class="overlay">
+  <div class="modal-content">
+    <div class="modal-content__img-content">
+      <img
+        src="../../../assets/AmazingSpiderMan545.jpg"
+        alt="ui"
+        class="modal-content__img-content__img"
+      />
+    </div>
+    <div class="modal-content__container">
+      <div class="modal-content__container__header-content">
+        <h3 class="modal-content__container__header-content__title">titulo</h3>
+      </div>
+      <div class="modal-content__container__description-content">
+        <p class="modal-content__container__description-content__text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi sit
+          excepturi ipsa nulla neque eveniet error atque iure debitis eaque rem
+          reprehenderit, perspiciatis nisi illo. Fugiat corporis quibusdam
+          perspiciatis nobis.
+        </p>
+      </div>
+      <div class="modal-content__container__buttons-content">
+        <button class="modal-content__container__buttons-content__fav">
+          {{ buttonFavCont }}
+        </button>
+        <button
+          *ngIf="!comprado"
+          class="modal-content__container__buttons-content__buy"
+        >
+          {{ buttonCompCont }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

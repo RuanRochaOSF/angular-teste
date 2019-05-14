@@ -6,6 +6,7 @@ import { VitrineComponent } from './componentes/vitrine/vitrine.component';
 import { CompradosComponent } from './componentes/comprados/comprados.component';
 import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
 import { CardComponent } from './componentes/card/card.component';
+import { ModalComponent } from './componentes/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CardComponent } from './componentes/card/card.component';
     VitrineComponent,
     CompradosComponent,
     FavoritosComponent,
-    CardComponent
+    CardComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule

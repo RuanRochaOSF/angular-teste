@@ -1,0 +1,31 @@
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+
+  &__img-content {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+
+    &__img {
+      height: 100%;
+    }
+  }
+
+  &__container {
+    width: 280px;
+    height: 400px;
+    padding: 10px;
+  }
+}
