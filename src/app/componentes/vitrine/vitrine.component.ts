@@ -10,42 +10,58 @@ export class VitrineComponent implements OnInit {
     {
       src: "../../../assets/AmazingSpiderMan545.jpg",
       titulo: "Spider-man - Infinito1",
-      descricao: "bla bla bla bla"
+      descricao: "bla bla bla bla",
+      favorito: false,
+      comprado: false
     },
     {
       src: "../../../assets/AmazingSpiderMan545.jpg",
       titulo: "Spider-man - Infinito2",
-      descricao: "bla bla bla bla"
+      descricao: "bla bla bla bla",
+      favorito: false,
+      comprado: false
     },
     {
       src: "../../../assets/AmazingSpiderMan545.jpg",
       titulo: "Spider-man - Infinito3",
-      descricao: "bla bla bla bla"
+      descricao: "bla bla bla bla",
+      favorito: false,
+      comprado: false
     },
     {
       src: "../../../assets/AmazingSpiderMan545.jpg",
       titulo: "Spider-man - Infinito4",
-      descricao: "bla bla bla bla"
+      descricao: "bla bla bla bla",
+      favorito: false,
+      comprado: false
     },
     {
       src: "../../../assets/AmazingSpiderMan545.jpg",
       titulo: "Spider-man - Infinito5",
-      descricao: "bla bla bla bla"
+      descricao: "bla bla bla bla",
+      favorito: false,
+      comprado: false
     },
     {
       src: "../../../assets/AmazingSpiderMan545.jpg",
       titulo: "Spider-man - Infinito6",
-      descricao: "bla bla bla bla"
+      descricao: "bla bla bla bla",
+      favorito: false,
+      comprado: false
     },
     {
       src: "../../../assets/AmazingSpiderMan545.jpg",
       titulo: "Spider-man - Infinito7",
-      descricao: "bla bla bla bla"
+      descricao: "bla bla bla bla",
+      favorito: false,
+      comprado: false
     },
     {
       src: "../../../assets/AmazingSpiderMan545.jpg",
       titulo: "Spider-man - Infinito8",
-      descricao: "bla bla bla bla"
+      descricao: "bla bla bla bla",
+      favorito: false,
+      comprado: false
     }
   ];
   produtosVisiveis: Array<any>;

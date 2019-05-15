@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, InputDecorator } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
+import { PubSubService } from "angular7-pubsub";
 
 @Component({
   selector: "app-card",
@@ -6,11 +7,13 @@ import { Component, OnInit, Input, InputDecorator } from "@angular/core";
   styleUrls: ["./card.component.scss"]
 })
 export class CardComponent implements OnInit {
-  @Input() favorito: boolean;
-  @Input() comprado: boolean;
   @Input() objeto: any;
 
-  constructor() {}
+  constructor(private pubsub: PubSubService) {}
 
   ngOnInit() {}
+
+  abrirModal() {
+    this.pubsub.$pub("abrirModal", this.objeto);
+  }
 }

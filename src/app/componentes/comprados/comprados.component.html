@@ -1,3 +1,19 @@
-<div *ngFor="let produto of comprados">
-  Comprado
-</div>
+<section class="section">
+  <div class="section__title-content">
+    <h2 class="section__title-content__title">COMPRADOS</h2>
+  </div>
+  <div class="container">
+    <div class="container__button-content">
+      <button
+        class="container__button-content__voltar"
+        (click)="voltar()"
+      ></button>
+    </div>
+    <div *ngFor="let produto of compradosVisiveis">
+      <app-card [objeto]="produto"></app-card>
+    </div>
+    <div class="container__button-content">
+      <button class="container__button-content__ir" (click)="ir()"></button>
+    </div>
+  </div>
+</section>
