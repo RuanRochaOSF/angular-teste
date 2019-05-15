@@ -15,5 +15,8 @@ export class AppComponent {
     this.visSubs = this.pubsub.$sub("abrirModal").subscribe(res => {
       this.visivel = true;
     });
+    this.visSubs = this.pubsub.$sub("fecharModal").subscribe(res => {
+      this.visivel = res;
+    });
   }
 }

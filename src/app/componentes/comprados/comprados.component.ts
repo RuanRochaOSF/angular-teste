@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Subscription } from 'rxjs';
+import { PubSubService } from 'angular7-pubsub';
 
 @Component({
   selector: "app-comprados",
@@ -8,16 +10,30 @@ import { Component, OnInit } from "@angular/core";
 export class CompradosComponent implements OnInit {
   todosComprados: Array<any> = [];
   compradosVisiveis: Array<any> = [];
-
+  favSubs: Subscription;
+  compSubs: Subscription;
   indiceIni: number;
   indiceFin: number;
-  constructor() {}
+  constructor(private pubsub: PubSubService) {}
 
   ngOnInit() {
     this.indiceIni = 0;
     this.todosComprados.length < 4
       ? (this.indiceFin = this.todosComprados.length)
       : (this.indiceFin = 4);
+    this.favSubs = this.pubsub.$sub("favoritar").subscribe(res => {
+      if (this.buscarProd(res) != -1) {
+        this.todosComprados[this.buscarProd(res)] = res;
+      }
+      this.mostrar_cards();
+    });
+    this.favSubs = this.pubsub.$sub("comprar").subscribe(res => {
+      this.todosComprados.push(res);
+      this.todosComprados.length < 4
+        ? (this.indiceFin = this.todosComprados.length)
+        : (this.indiceFin = 4);
+      this.mostrar_cards();
+    });
     this.mostrar_cards();
   }
 
@@ -41,5 +57,14 @@ export class CompradosComponent implements OnInit {
     this.indiceIni--;
     this.indiceFin--;
     this.mostrar_cards();
+  }
+
+  buscarProd(obj:any):number{
+    for (let index = 0; index < this.todosComprados.length; index++) {
+      if (this.todosComprados[index].id == obj.id) {
+        return this.todosComprados[index];
+      }
+    }
+    return -1;
   }
 }

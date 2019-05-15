@@ -9,6 +9,7 @@ import { Subscription } from "rxjs";
 })
 export class ModalComponent implements OnInit, OnDestroy {
   objeto: any = {
+    id: "",
     src: "../../../assets/AmazingSpiderMan545.jpg",
     titulo: "Titulo Padrão",
     descricao: "bla bla bla bla",
@@ -28,4 +29,26 @@ export class ModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {}
+
+  fecharModal(elem){
+    if(event.target == elem) this.pubsub.$pub("fecharModal", false);
+  }
+
+  favoritar(){
+    if (!this.objeto.favorito) {
+      this.objeto.favorito = true;
+      this.pubsub.$pub("favoritar", this.objeto);
+    } else {
+      this.objeto.favorito = false;
+      this.pubsub.$pub("desfavoritar", this.objeto);
+    }
+
+  }
+
+  comprar(){
+    if (!this.objeto.comprado) {
+      this.objeto.comprado = true;
+      this.pubsub.$pub("comprar", this.objeto);
+    }
+  }
 }
