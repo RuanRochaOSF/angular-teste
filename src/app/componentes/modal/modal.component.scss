@@ -45,6 +45,25 @@
       button {
         width: 128px;
         height: 40px;
+        cursor: pointer;
+      }
+
+      &__fav.favorito{
+        border: 2px solid yellow;
+        background-color: yellow;
+        outline: none;
+      }
+
+      &__buyed{
+        width: 128px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial;
+        font-size: 13.3px;
+        background-color: rgb(33, 25, 99);
+        color: white;
       }
     }
   }

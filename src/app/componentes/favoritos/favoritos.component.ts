@@ -20,22 +20,28 @@ export class FavoritosComponent implements OnInit {
     this.indiceIni = 0;
     this.todosFavoritos.length < 4
       ? (this.indiceFin = this.todosFavoritos.length)
-      : (this.indiceFin = 4);
+      : (this.indiceFin = this.indiceIni + 4);
     this.favSubs = this.pubsub.$sub("favoritar").subscribe(res => {
       this.todosFavoritos.push(res);
-      this.todosFavoritos.length < 4
-        ? (this.indiceFin = this.todosFavoritos.length)
-        : (this.indiceFin = 4);
+      this.indiceFin = this.todosFavoritos.length;
+      if ((this.indiceFin == this.todosFavoritos.length) && (this.indiceIni != 0)) {
+        this.indiceIni = this.todosFavoritos.length - 4;
+      } else {
+        this.indiceFin = this.indiceIni + 4;
+      }
       this.mostrar_cards();
     });
     this.favSubs = this.pubsub.$sub("desfavoritar").subscribe(res => {
       if (this.buscarProd(res) != -1) {
         this.todosFavoritos.splice(this.buscarProd(res),1);
-        this.todosFavoritos.length < 4
-          ? (this.indiceFin = this.todosFavoritos.length)
-          : (this.indiceFin = 4);
+        this.indiceFin = this.todosFavoritos.length;
+        if ((this.indiceFin == this.todosFavoritos.length) && (this.indiceIni != 0)) {
+          this.indiceIni = this.todosFavoritos.length - 4;
+        } else {
+          this.indiceFin = this.indiceIni + 4;
+        }
         this.mostrar_cards();
-      }
+    }
     });
     this.mostrar_cards();
   }
@@ -65,7 +71,7 @@ export class FavoritosComponent implements OnInit {
   buscarProd(obj:any):number{
     for (let index = 0; index < this.todosFavoritos.length; index++) {
       if (this.todosFavoritos[index].id == obj.id) {
-        return this.todosFavoritos[index];
+        return index;
       }
     }
     return -1;

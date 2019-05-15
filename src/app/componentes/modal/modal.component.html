@@ -19,12 +19,15 @@
         </p>
       </div>
       <div class="modal-content__container__buttons-content">
-        <button class="modal-content__container__buttons-content__fav" (click)="favoritar()">
+        <button class="modal-content__container__buttons-content__fav {{buttonFavStatus}}" (click)="favoritar()" (mouseover)="feedbackFavHover1()" (mouseleave)="feedbackFavHover2()">
           {{ buttonFavCont }}
         </button>
-        <button class="modal-content__container__buttons-content__buy" (click)="comprar()">
+        <button class="modal-content__container__buttons-content__buy" (click)="comprar()" *ngIf="!objeto.comprado">
           {{ buttonCompCont }}
         </button>
+        <div class="modal-content__container__buttons-content__buyed" *ngIf="objeto.comprado">
+          Comprado
+        </div>
       </div>
     </div>
   </div>

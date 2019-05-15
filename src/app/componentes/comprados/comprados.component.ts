@@ -62,7 +62,7 @@ export class CompradosComponent implements OnInit {
   buscarProd(obj:any):number{
     for (let index = 0; index < this.todosComprados.length; index++) {
       if (this.todosComprados[index].id == obj.id) {
-        return this.todosComprados[index];
+        return index;
       }
     }
     return -1;
